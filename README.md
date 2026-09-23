@@ -1,5 +1,21 @@
 # Freedom Storefront
 
+<!-- freedom-repository-guide:start -->
+## 在自由工坊的位置
+
+[自由工坊](https://freetwai.com) 讓會員先完成定位、選擇公會並領取 Repo 技能書，再以供貨、商店、開源作品、行銷與小隊共同完成成果。
+
+可 Fork 的商店模板、薄 SDK 與私人預覽，供電商與銷售公會改造。 已有四種商店版型、HTML 預覽、中央商店 SDK 與會員核准的 storefront:read 客戶端。
+
+公開商品 feed、正式 checkout、訂單、付款、分潤與自動部署尚未實作。
+
+本 repo 的維護者負責「可 Fork 的商店模板、薄 SDK 與私人預覽，供電商與銷售公會改造。」這個模組；公會職稱與自填 GitHub slug 不授予寫入權。
+
+程式／內容入口：[templates/](templates/)、[packages/storefront-sdk/](packages/storefront-sdk/)、[packages/templates/](packages/templates/)、[client/](client/)、[scripts/run-client.mjs](scripts/run-client.mjs)。協作先讀 [CONTRIBUTING.md](CONTRIBUTING.md)，讓 Agent 讀 [AGENTS.md](AGENTS.md)；從[本倉 Issues](https://github.com/FreeTWAI-AI/freedom-storefront/issues)認領、[查看既有 PR](https://github.com/FreeTWAI-AI/freedom-storefront/pulls)避免重工。
+
+商店與商品事實由中央平台保存。獨立 token 只能讀取已核准的一家商店；寫入 helper 僅供同站受驗證整合，不能用讀取 token 呼叫。私人供貨價、客戶資料與憑證不能進 HTML 或 Pages。 跨 repo 的協定由[中央平台](https://github.com/FreeTWAI-AI/freedom-platform)維護。
+<!-- freedom-repository-guide:end -->
+
 可 fork 的商店模板、薄 SDK 與離線 HTML 預覽工具。商品、供貨條件、Store、選品版本與人的確認由 [`freedom-platform`](https://github.com/FreeTWAI-AI/freedom-platform) 的中央 API 保存。本 repo 不建立第二套會員、商品資料庫或金流帳。
 
 本階段是 **會員內部預覽**：可讀取已登入使用者的商店資料，建立商店／選品草稿、提出供貨確認，以及生成私人本機版面。公開商店 API、SellerParty 啟用、買家 purpose token、checkout、訂單、付款與正式發布尚未在這個模板實作。
