@@ -8,3 +8,15 @@ permissions:
 jobs:
   verify:
     uses: FreeTWAI-AI/.github/.github/workflows/verify-template.yml@fb74d43e623f05c849664da6f2f1a630de25a898
+  verify-client-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - name: Verify exact shared client source
+        run: node scripts/verify-client-source.mjs --remote

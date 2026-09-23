@@ -1,0 +1,17 @@
+{
+  "format": "freedom.read-client-source/v1",
+  "source_repository": "FreeTWAI-AI/freedom-platform",
+  "source_commit": "b221d2ba1bcf014dc785e95212455ba6f157ec6d",
+  "files": {
+    "read-client.mjs": {
+      "source_path": "packages/client-connections/read-client.mjs",
+      "sha256": "b47e3449b7415b097e14ef75bd750a3c8bee893eb11b78aa3de0f794cdf4782d",
+      "bytes": 4020
+    },
+    "cli.mjs": {
+      "source_path": "packages/client-connections/cli.mjs",
+      "sha256": "106a19e6490764e6c5298ee0bfe0959cd69e56521b534d22ed81fbc79e5c0677",
+      "bytes": 3081
+    }
+  }
+}

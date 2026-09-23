@@ -7,3 +7,13 @@ snapshots/
 !.env.example
 *.log
 test-results/
+
+# Never track member connections, read snapshots or private exports.
+credentials/
+.freedom/
+*.credentials.json
+*credential*.json
+*.token
+*.pem
+private/
+read-output/

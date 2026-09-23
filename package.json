@@ -3,10 +3,20 @@
   "version": "0.1.0-internal-preview",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24" },
-  "exports": { ".": "./src/index.mjs", "./sdk": "./packages/storefront-sdk/index.mjs", "./templates": "./packages/templates/index.mjs" },
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./sdk": "./packages/storefront-sdk/index.mjs",
+    "./templates": "./packages/templates/index.mjs",
+    "./read-client": "./client/read-client.mjs"
+  },
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "build": "node scripts/build-preview.mjs"
+    "build": "node scripts/build-preview.mjs",
+    "connect": "node scripts/run-client.mjs connect",
+    "read": "node scripts/run-client.mjs read",
+    "verify:client-source": "node scripts/verify-client-source.mjs"
   }
 }

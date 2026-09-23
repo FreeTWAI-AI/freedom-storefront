@@ -1,0 +1,10 @@
+import {spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const [mode,...args]=process.argv.slice(2),resources=["connection", "catalog", "stores", "listings"];
+if(!['connect','read'].includes(mode))throw Error('Use npm run connect or npm run read.');
+if(mode==='connect'&&args.length)throw Error('Connect takes no positional arguments.');
+const resource=args[0]??'stores';
+if(mode==='read'&&(args.length>1||!resources.includes(resource)))throw Error('Read resource must be one of: '+resources.join(', '));
+const child=spawn(process.execPath,[fileURLToPath(new URL('../client/cli.mjs',import.meta.url)),mode,...(mode==='read'?[resource]:[])],{stdio:'inherit',env:{...process.env,FREEDOM_CLIENT_KIND:'storefront',FREEDOM_CLIENT_NAME:process.env.FREEDOM_CLIENT_NAME??'我的自由工坊商店'}});
+child.once('error',()=>{console.error('Unable to start the local read client.');process.exitCode=1;});
+child.once('exit',code=>{process.exitCode=code??1;});

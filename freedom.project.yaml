@@ -15,13 +15,15 @@
     ],
     "capabilities": [
       "Prepare supplier and retailer API commands",
-      "Render reference store templates using Platform snapshots"
+      "Render reference store templates using Platform snapshots",
+      "Read the member-approved single store through a scoped local client connection"
     ],
     "limitations": [
       "No production storefront, checkout, payment collection or verified commercial agreement",
       "Quality and release fields declare intended policy; they do not attest an enforced ruleset or a signed release",
       "NOASSERTION means licensing remains undecided; this metadata grants no additional reuse rights",
-      "github_pages is the intended project-page surface only; Pages and production remain unpublished"
+      "github_pages is the intended project-page surface only; Pages and production remain unpublished",
+      "Short-lived read token remains in a private client-owned 0600 file outside the repository and browser; read data is not a public storefront feed"
     ]
   },
   "ownership": {
@@ -62,7 +64,7 @@
     "publication": "github_pages",
     "requested_trust_label": "incubating",
     "source": "generated",
-    "canonical_platform_url": "https://staging.freetwai.com/",
+    "canonical_platform_url": "https://freetwai.com/",
     "github_pages_url": "https://freetwai-ai.github.io/freedom-storefront/",
     "exception_reason": null,
     "required_sections": [
@@ -135,19 +137,27 @@
     "database_migration_strategy": "none"
   },
   "data_boundary": {
-    "classification": "public",
+    "classification": "internal",
     "platform_record_types": [],
-    "customer_data_mode": "none",
+    "customer_data_mode": "external_client_owned",
     "credential_reference_metadata_in_postgres": false,
     "dynamic_credential_storage": [
-      "none"
+      "client_owned"
     ],
     "credential_root_key_storage": "none",
     "stores_payment_instrument_data": false,
-    "stores_plaintext_credentials": false,
+    "stores_plaintext_credentials": true,
     "external_systems_of_record": [
-      "github"
-    ]
+      "github",
+      "client_storage"
+    ],
+    "client_credential_policy": {
+      "kind": "scoped_read_token",
+      "max_lifetime_seconds": 604800,
+      "local_file_mode": "0600",
+      "repo_storage": false,
+      "browser_storage": false
+    }
   },
   "quality": {
     "required_checks": [

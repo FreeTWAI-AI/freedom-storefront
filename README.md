@@ -4,6 +4,33 @@
 
 本階段是 **會員內部預覽**：可讀取已登入使用者的商店資料，建立商店／選品草稿、提出供貨確認，以及生成私人本機版面。公開商店 API、SellerParty 啟用、買家 purpose token、checkout、訂單、付款與正式發布尚未在這個模板實作。
 
+## Fork 後連回自己的平台商店
+
+[先建立我的商店](https://freetwai.com/#retail) · [Fork 商店模板](https://github.com/FreeTWAI-AI/freedom-storefront/fork) · [核准／撤銷連線](https://freetwai.com/#account)
+
+這個 repo 現在支援會員核准的獨立讀取連線。先在網站註冊、完成定位並建立商店，再執行：
+
+```sh
+npm ci --ignore-scripts
+npm run connect
+```
+
+終端會顯示五分鐘有效代碼。用自己的瀏覽器登入自由工坊，到「我的名片」輸入代碼，選擇你自己的商店並核准 `storefront:read`。客戶端不會取得你的登入密碼或瀏覽器 session。
+
+```sh
+npm run read
+npm run read -- stores
+npm run read -- listings
+npm run read -- catalog
+npm run read -- connection
+```
+
+預設接 `https://freetwai.com`，連線固定在核准的那一家商店；資料與平台網站共用。讀取結果是私人 JSON，可能包含供貨價格；不會自動生成或發布公開頁面。建立商店、選品、提出供貨確認仍在網站操作。既有下方 SDK 的寫入 helper 供同站受驗證整合使用；獨立讀取 token **不能**呼叫那些寫入操作。
+
+憑證位於 repo 外的 `~/.config/freedom-clients/storefront.json`，只允許本人讀取。CLI 不列印 token、不接受重新導向、不覆寫既有連線。若需重連，先在網站撤銷，再移除自己的舊連線檔。多商店以 `FREEDOM_CREDENTIAL_FILE` 指定不同私人檔案；`FREEDOM_CLIENT_NAME` 自訂名稱，`FREEDOM_PLATFORM_ORIGIN` 切換受信任的平台 origin（開發只允許 HTTP loopback）。
+
+共用連線程式放在 `client/`，來源路徑、commit 與檔案 digest 記錄在 `client-source.lock.json`，以 `npm run verify:client-source -- --remote` 驗證。不要把憑證、讀取結果或含私人供貨條件的 HTML 放上 Pages。
+
 ## 四種模板
 
 | 目錄 | 現在可做 |
