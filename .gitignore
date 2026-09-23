@@ -1,0 +1,9 @@
+node_modules/
+dist/
+snapshots/
+.env
+.env.*
+*.local.json
+!.env.example
+*.log
+test-results/

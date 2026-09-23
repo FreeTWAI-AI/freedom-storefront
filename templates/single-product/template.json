@@ -1,0 +1,11 @@
+{
+  "id": "single-product",
+  "name": "單品說明頁",
+  "description": "檢視單一商店一筆確切選品版本，供內部確認商品說明。",
+  "status": "internal-preview",
+  "source": "listing",
+  "requires_store": true,
+  "requires_listing": true,
+  "checkout_enabled": false,
+  "public_publication_enabled": false
+}

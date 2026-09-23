@@ -1,0 +1,10 @@
+{
+  "id": "service-offer",
+  "name": "專業服務說明頁",
+  "description": "預留服務項目、提供者與服務條款的模板入口。現行商店 API 尚未支援服務選品。",
+  "status": "unavailable-api-pending",
+  "source": null,
+  "requires_store": false,
+  "checkout_enabled": false,
+  "public_publication_enabled": false
+}

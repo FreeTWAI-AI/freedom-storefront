@@ -1,0 +1,10 @@
+{
+  "id": "master-store",
+  "name": "參考商品目錄",
+  "description": "供會員探索目前社群商品的內部參考目錄，可不販售商品。",
+  "status": "internal-preview",
+  "source": "catalog",
+  "requires_store": false,
+  "checkout_enabled": false,
+  "public_publication_enabled": false
+}

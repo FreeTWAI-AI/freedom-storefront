@@ -1,0 +1,10 @@
+{
+  "id": "catalog-store",
+  "name": "單一商店選品目錄",
+  "description": "檢視自己一家商店的選品、售價與供貨確認進度。",
+  "status": "internal-preview",
+  "source": "listings",
+  "requires_store": true,
+  "checkout_enabled": false,
+  "public_publication_enabled": false
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1",
+  "mode": "internal_preview",
+  "generated_at": "2026-09-23T00:00:00.000Z",
+  "store_id": "demo-store",
+  "capabilities": { "checkout": false, "payments": false, "public_publication": false, "service_offers": false },
+  "stores": [{ "store_id": "demo-store", "name": "自由工坊示範商店", "description": "展示在地製作與清楚供貨條件的內部範例；沒有真實庫存或交易。", "support_contact": "內部示範，請回會員工作台討論。" }],
+  "catalog": [{ "product_id": "demo-product", "title": "手工筆記本（範例）", "specifications": "A5／80 頁／米白內頁；僅供版面預覽。", "supplier_name": "示範供貨者", "current_offer": { "offer_version_id": "demo-offer-v1", "revision": 1, "net_price_minor": 12000, "currency": "TWD", "availability": "manual_confirmation", "stock": null, "shipping_terms": "實際出貨方式須由當事人另行確認。" } }],
+  "listings": [{ "listing_id": "demo-listing", "store_id": "demo-store", "state": "draft", "aggregate_version": 1, "snapshot_sha256": "0000000000000000000000000000000000000000000000000000000000000000", "snapshot": { "offer_version_id": "demo-offer-v1", "retail_price_minor": 18000, "currency": "TWD", "sale_terms": "內部展示價，尚未上架或接受訂單。", "supply": { "title": "手工筆記本（範例）", "specifications": "A5／80 頁／米白內頁；僅供版面預覽。", "shipping_terms": "實際出貨方式須由當事人另行確認。", "return_terms": "交易前須由銷售者明確提供退換貨條件。" } } }]
+}
