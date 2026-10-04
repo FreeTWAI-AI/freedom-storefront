@@ -17,6 +17,7 @@
     "build": "node scripts/build-preview.mjs",
     "connect": "node scripts/run-client.mjs connect",
     "read": "node scripts/run-client.mjs read",
-    "verify:client-source": "node scripts/verify-client-source.mjs"
+    "verify:client-source": "node scripts/verify-client-source.mjs",
+    "verify:libraries": "node scripts/verify-consumer-libraries.mjs"
   }
 }
