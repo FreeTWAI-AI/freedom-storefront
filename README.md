@@ -122,3 +122,20 @@ API 驗證真正的使用者／社群／商店所有權。SDK 的篩選只是避
 依 [主計畫 §4](https://github.com/FreeTWAI-AI/freedom-platform/blob/main/docs/platform-plan/02-architecture-repositories.md)，要上公開商店，需要先在 Platform 建立 Store 的 SellerParty、單一 buyer-facing seller collection connection、allowed origins 與 catalog selection，再提供限定欄位的 public read／checkout API。瀏覽器只帶 public store ID 與短效 purpose token；付款 secret 和資料庫連線不進模板或 bundle。
 
 本 repo 沒有自行補一個 public endpoint、把私人 catalog 直接發布，或把供貨確認解讀成交易完成。
+
+## Connected private workspace
+
+`loadConnectedStorefront({ origin, token })` is now exported from `src/index.mjs`. It imports the central shared read client, checks the connection's `storefront:read` scope, then reads catalog, stores and listings for the approved store. A revoked connection, wrong scope or mixed-store response rejects the whole read. It never accepts browser credentials, writes data, retries a failed request or publishes the resulting private JSON.
+
+```js
+import { loadConnectedStorefront } from './src/index.mjs';
+const workspace = await loadConnectedStorefront({ origin: 'https://freetwai.com', token });
+```
+
+The token comes from the existing member-approved connection and must stay outside the repository. The existing session-based SDK and preview v1 bundle are unchanged. `consumer-libraries.lock.json` pins this new shared library separately; it is source provenance, not release approval or complete runtime coverage. Verify against an independently selected source SHA:
+
+```sh
+node scripts/verify-consumer-libraries.mjs FreeTWAI-AI/freedom-storefront EXPECTED_PLATFORM_SHA --source-root /path/to/freedom-platform
+```
+
+After the exact source commit is publicly available, use `--remote` instead of `--source-root /path/to/freedom-platform`.

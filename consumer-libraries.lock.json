@@ -1,0 +1,21 @@
+{
+  "format": "freedom.consumer-libraries/v1",
+  "repository": "FreeTWAI-AI/freedom-storefront",
+  "consumer_base_commit": "f368475a3db9e606761f1aa302fdd2787ba0e8ba",
+  "source_repository": "FreeTWAI-AI/freedom-platform",
+  "source_commit": "91b943ac61e132fbbce72ea066cb2301aa065600",
+  "files": [
+    {
+      "source_path": "packages/client-connections/read-client.mjs",
+      "path": "vendor/freedom-libraries/packages/client-connections/read-client.mjs",
+      "sha256": "b47e3449b7415b097e14ef75bd750a3c8bee893eb11b78aa3de0f794cdf4782d",
+      "bytes": 4020
+    },
+    {
+      "source_path": "packages/client-connections/storefront-workspace.mjs",
+      "path": "vendor/freedom-libraries/packages/client-connections/storefront-workspace.mjs",
+      "sha256": "47b1d4f52bddd698c8969b7aaa3544b2dae1129e7853908b2875ea449b9b843f",
+      "bytes": 1357
+    }
+  ]
+}
