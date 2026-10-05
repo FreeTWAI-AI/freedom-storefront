@@ -19,5 +19,8 @@
     "read": "node scripts/run-client.mjs read",
     "verify:client-source": "node scripts/verify-client-source.mjs",
     "verify:libraries": "node scripts/verify-consumer-libraries.mjs"
+  },
+  "bin": {
+    "freedom-unregistered-probe": "src/governance-probe-entry.mjs"
   }
 }
